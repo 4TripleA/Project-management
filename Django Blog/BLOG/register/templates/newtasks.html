@@ -1,0 +1,61 @@
+{% extends "master.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}Tasks View{% endblock %}
+    {% block content %}
+    <style>
+        h2{
+            margin-top: 120px;
+            margin-bottom: 40px;
+            color: whitesmoke;
+            font-size: 30px;
+        }
+        form{
+            text-align: center;
+            align-items: center;
+        }
+        .title{
+            width: 305px;
+            border-radius: 2px;
+            height: 25px;
+            margin-bottom: 20px;
+
+        }
+        label{
+            color: white;
+            font-weight: bold;
+            display: none;
+        }
+        .body{
+            margin-top: 20px;
+            border-radius: 2px;
+        }
+        button{
+            margin-top: 20px;
+            width: 200px;
+            height: 25px;
+            border-radius: 5px;
+            color: blue;
+        }
+        button:hover{
+            color: white;
+            background-color: blue;
+            transition: 0.5s ease all;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="" method="post">
+        <h2>Add a new Project</h2>
+        {% csrf_token %}
+        {{ form.as_p}}
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+{% endblock %}
+</html>

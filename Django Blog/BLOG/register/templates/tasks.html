@@ -1,0 +1,86 @@
+{% extends "master.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+   <link rel="stylesheet" href="{% static 'home.css' %}">
+   <link rel="stylesheet" href="{% static 'master.css' %}">
+   {% block title %}Tasks{% endblock %}
+   {% block content %}
+   <style>
+        *{
+            margin: 0;
+            padding: 0;
+        } 
+        body{
+            background-color: #0945cb;
+        } 
+
+        .container{
+            display: flex;
+            justify-content: space-between;
+            padding: 80px 5%;
+        } 
+        .left{
+            flex-basis: 80%;
+            margin-left: 130px;
+            position: sticky;
+            align-self: flex-start;
+            height: 100vh;
+        }
+        
+        .first{
+            background-color: #f5f5f5;
+            height: 200px;
+            margin-top: 1px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: auto;
+        }
+
+        header{
+            margin-bottom: 30px;
+            text-align: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+        }
+   </style>
+</head>
+
+
+<body> 
+
+<div class="container"> 
+    <div class="left">
+        <header>VIEW PROJECT DESCRIPTIONS</header>
+        {% for post in posts %}
+            <article class="first">
+            <div>
+                <a href="" style="text-decoration: none; color: black;">
+                    <div style="display: flex;">
+                        <h2 style="display: inline; margin-left: 30px; margin-top: 20px;">{{ post.title }}</h2>
+                        <h3 style="margin-top: 50px;">{{ post.body }}</h3>
+                        <h4 style="margin-top: 55px; margin-left: 600px;">{{ post.date_posted|date:"d M, Y" }}</h4>
+                    </div> 
+                </a> 
+            </div>
+            </article>
+        {% endfor %}
+
+
+
+   
+
+        
+    </div>
+    
+    
+</div>
+</body>
+
+{% endblock %}
+</html>
